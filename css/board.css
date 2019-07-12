@@ -1,0 +1,139 @@
+body {
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  font-size: 5vh;
+  font-weight: 700;
+  padding: 3vh;
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: .7vh;
+}
+
+h2 {
+  font-family: monospace;
+  font-size: 4vh;
+  font-weight: 700;
+  padding: 1vh;
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: .7vh;
+}
+
+h3 {
+  font-family: monospace;
+  font-size: 2vh;
+  font-weight: 700;
+  padding: 1.5vh 0 0 0;
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: .4vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.left, .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.left .world,
+.left .current,
+.left .prior,
+.left .posterior,
+.right .data {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #cccccc;
+  border-radius: 5px;
+  padding: 1vh;
+  margin: 1.5vh;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.left .world .tile,
+.left .current .tile,
+.left .prior .tile,
+.left .posterior .tile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 7vh;
+  height: 7vh;
+  margin: .7vh;
+  border: 1px solid #999999;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  font-family: monospace;
+  font-size: 2vh;
+  font-weight: 700;
+}
+
+.left .world .tile.green {
+  background-color: #00ff00;
+}
+
+.left .world .tile.red {
+  background-color: #ff0000;
+}
+
+.left .world .tile img {
+  width: 6vh;
+  padding: .7vh;
+}
+
+.left .world .tile.green img {
+  opacity: .11
+}
+
+.left .world .tile.red img {
+  opacity: .33
+}
+
+.left .current {
+  background-color: #cccccc;
+}
+
+.left .current .tile.grey {
+  background-color: #cccccc;
+}
+
+.left .prior {
+  background-color: #aaaaaa;
+}
+
+.left .prior .tile.grey {
+  background-color: #dddddd;
+}
+
+.left .posterior {
+  background-color: #888888;
+}
+
+.left .posterior .tile.grey {
+  background-color: #eeeeee;
+}
+
+.right .data {
+  margin: 0 5vh;
+  width: 30vh;
+  height: 50vh;
+  background-color: #eeeeee;
+}
