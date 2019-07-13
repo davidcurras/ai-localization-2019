@@ -66,13 +66,17 @@ h3 {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
+#world {
+  padding-bottom: 2vh;
+}
+
 #world .tile,
 #current .tile,
 #prior .tile,
 #posterior .tile {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 7vh;
@@ -97,10 +101,12 @@ h3 {
 #world .tile img {
   width: 6vh;
   padding: .7vh;
+  margin-top: 2.2vh;
+  opacity: .5;
 }
 
-#world .tile img {
-  opacity: .5
+#world .tile span {
+  margin-top: .3vh;
 }
 
 #current {

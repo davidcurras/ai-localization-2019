@@ -1,4 +1,4 @@
-const world = ['green', 'red', 'red', 'green', 'green', 'red']
+const world = ['green', 'red', 'red', 'green', 'green']
 
 const pHit = 0.6
 const pMiss = 0.2
@@ -37,9 +37,7 @@ const setPosterior = () => {
 const renderWorld = () => {
   let html = ''
   for (let i = 0; i < world.length; i++) {
-    html += '<div class="tile '+world[i]+'">'
-    html += '  <img src="images/robot.png" alt="ROBOT">'
-    html += '</div>'
+    html += '<div class="tile '+world[i]+'"></div>'
   }
   document.getElementById('world').innerHTML = html
 }
@@ -71,6 +69,20 @@ const renderPosterior = () => {
   document.getElementById('posterior').innerHTML = html
 }
 
+const renderRobot = () => {
+  const worldEl = document.getElementById('world')
+  const worldTiles = worldEl.getElementsByClassName('tile')
+  for (let i = 0; i < worldTiles.length; i++) {
+    worldTiles[i].innerHTML = '' +
+      '<img src="images/robot.png" alt="ROBOT">' +
+      '<span>'+posterior[i].toFixed(2)+'</span>'
+  }
+  const worldTilesImg = worldEl.getElementsByTagName('img')
+  for (let i = 0; i < worldTilesImg.length; i++) {
+    worldTilesImg[i].style.opacity = posterior[i] * 2
+  }
+}
+
 const init = () => {
   setUniformCurrent()
   setPrior()
@@ -79,6 +91,7 @@ const init = () => {
   renderCurrent()
   renderPrior()
   renderPosterior()
+  renderRobot()
 }
 
 window.onload = init
