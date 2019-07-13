@@ -49,10 +49,10 @@ h3 {
   align-items: center;
 }
 
-.left .world,
-.left .current,
-.left .prior,
-.left .posterior,
+#world,
+#current,
+#prior,
+#posterior,
 .right .data {
   position: relative;
   display: flex;
@@ -66,10 +66,10 @@ h3 {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
-.left .world .tile,
-.left .current .tile,
-.left .prior .tile,
-.left .posterior .tile {
+#world .tile,
+#current .tile,
+#prior .tile,
+#posterior .tile {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -86,48 +86,44 @@ h3 {
   font-weight: 700;
 }
 
-.left .world .tile.green {
+#world .tile.green {
   background-color: #00ff00;
 }
 
-.left .world .tile.red {
+#world .tile.red {
   background-color: #ff0000;
 }
 
-.left .world .tile img {
+#world .tile img {
   width: 6vh;
   padding: .7vh;
 }
 
-.left .world .tile.green img {
-  opacity: .11
+#world .tile img {
+  opacity: .5
 }
 
-.left .world .tile.red img {
-  opacity: .33
-}
-
-.left .current {
+#current {
   background-color: #cccccc;
 }
 
-.left .current .tile.grey {
+#current .tile.grey {
   background-color: #cccccc;
 }
 
-.left .prior {
+#prior {
   background-color: #aaaaaa;
 }
 
-.left .prior .tile.grey {
+#prior .tile.grey {
   background-color: #dddddd;
 }
 
-.left .posterior {
+#posterior {
   background-color: #888888;
 }
 
-.left .posterior .tile.grey {
+#posterior .tile.grey {
   background-color: #eeeeee;
 }
 
