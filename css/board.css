@@ -35,11 +35,42 @@ h3 {
   letter-spacing: .4vh;
 }
 
+input, select, button {
+  margin: 1vh;
+  font-family: monospace;
+  font-size: 2vh;
+  font-weight: 400;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+input, select {
+  padding: 2vh;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button.confirm {
+  width: 80%;
+  background-color: #009900;
+  color: #FFFFFF;
+  padding: 1vh;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.confirm:hover {
+  background-color: #006600;
+}
+
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .left, .right {
@@ -91,11 +122,12 @@ h3 {
 }
 
 #world .tile.green {
-  background-color: #00ff00;
+  background-color: rgba(0, 255, 0, 0.7);
+
 }
 
 #world .tile.red {
-  background-color: #ff0000;
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
 #world .tile img {
@@ -134,8 +166,85 @@ h3 {
 }
 
 .right .data {
-  margin: 0 5vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 1.5vh 5vh;
   width: 30vh;
-  height: 50vh;
   background-color: #eeeeee;
+}
+
+#measurements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 88%;
+  margin: 2vh;
+}
+
+#measurements form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#measurements form select {
+  min-width: 60%;
+}
+
+#measurements ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 83%;
+  font-size: 2vh;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+#measurements ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .1vh 1vh;
+  margin-top: 1vh;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+#measurements ul li.red {
+  background-color: rgba(200, 0, 0, 0.5);
+}
+
+#measurements ul li.green {
+  background-color: rgba(0, 200, 0, 0.5);
+}
+
+#measurements ul li button {
+  padding: .2vh 1vh;
+  margin: .2vh;
+  background-color: transparent;
+  border: 1px transparent solid;
+  border-radius: 3px;
+  box-shadow: 0 0 0 0;
+}
+
+#measurements ul li button:hover {
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+#measurements ul li.red button:hover {
+  background-color: rgba(200, 0, 0, 0.5);
+  border-color: rgba(150, 0, 0, 0.5);
+}
+
+#measurements ul li.green button:hover {
+  background-color: rgba(0, 200, 0, 0.5);
+  border-color: rgba(0, 150, 0, 0.5);
 }

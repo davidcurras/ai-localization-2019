@@ -25,7 +25,25 @@
       <div class="right">
         <h2>Data</h2>
         <div class="data">
-          <button type="button" id="run">Run</button>
+          <h3>Measurements</h3>
+          <div id="measurements">
+            <form>
+              <select id="measurement-type">
+                <option value="red">red</option>
+                <option value="green">green</option>
+              </select>
+              <button type="button" class="confirm" id="add-measurement">Add</button>
+            </form>
+            <ul>
+              <li id="m1" class="red">
+                red <button type="button" class="measurement" title="REMOVE">X</button>
+              </li>
+              <li id="m2" class="green">
+                green <button type="button" class="measurement" title="REMOVE">X</button>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="confirm" id="run">Run</button>
         </div>
       </div>
     </div>
