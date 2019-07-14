@@ -1,37 +1,31 @@
 body {
   font-family: monospace;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+}
+
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 h1 {
   font-size: 5vh;
   font-weight: 700;
   padding: 3vh;
-  text-transform: uppercase;
-  text-decoration: underline;
   letter-spacing: .7vh;
 }
 
 h2 {
-  font-family: monospace;
   font-size: 4vh;
   font-weight: 700;
   padding: 1vh;
-  text-transform: uppercase;
-  text-decoration: underline;
   letter-spacing: .7vh;
 }
 
 h3 {
-  font-family: monospace;
   font-size: 2vh;
   font-weight: 700;
   padding: 1.5vh 0 0 0;
-  text-transform: uppercase;
-  text-decoration: underline;
   letter-spacing: .4vh;
 }
 
@@ -41,7 +35,6 @@ input, select, button {
   font-size: 2vh;
   font-weight: 400;
   text-transform: uppercase;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 input, select {
@@ -67,17 +60,7 @@ button.confirm:hover {
 }
 
 .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   align-items: flex-start;
-}
-
-.left, .right {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
 #world,
@@ -86,15 +69,10 @@ button.confirm:hover {
 #normalized,
 .right .data {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
   background-color: #cccccc;
   border-radius: 5px;
   padding: 1vh;
   margin: 1.5vh;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 #world {
@@ -105,18 +83,11 @@ button.confirm:hover {
 #prior .tile,
 #posterior .tile,
 #normalized .tile {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   width: 7vh;
   height: 7vh;
   margin: .7vh;
   border: 1px solid #999999;
   border-radius: 3px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-  font-family: monospace;
   font-size: 2vh;
   font-weight: 700;
 }
@@ -166,7 +137,6 @@ button.confirm:hover {
 }
 
 .right .data {
-  flex-direction: column;
   justify-content: flex-start;
   margin: 1.5vh 5vh;
   width: 30vh;
@@ -174,18 +144,11 @@ button.confirm:hover {
 }
 
 #measurements {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 88%;
   margin: 2vh;
 }
 
 #measurements form {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   width: 100%;
 }
 
@@ -194,10 +157,6 @@ button.confirm:hover {
 }
 
 #measurements ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 83%;
   font-size: 2vh;
   font-weight: 400;
@@ -205,16 +164,11 @@ button.confirm:hover {
 }
 
 #measurements ul li {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   padding: .1vh 1vh;
   margin-top: 1vh;
   border: none;
   border-radius: 3px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 #measurements ul li.red {
@@ -231,12 +185,10 @@ button.confirm:hover {
   background-color: transparent;
   border: 1px transparent solid;
   border-radius: 3px;
-  box-shadow: 0 0 0 0;
 }
 
 #measurements ul li button:hover {
   border-radius: 3px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 #measurements ul li.red button:hover {

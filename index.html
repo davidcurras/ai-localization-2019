@@ -5,47 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Localization AI</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/micro-classes.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
-    <h1>Localization</h1>
-    <div class="container">
-      <div class="left">
-        <h2>World</h2>
-        <div id="world"></div>
-        <h3>Prior</h3>
-        <div id="prior"></div>
-        <h3>Posterior</h3>
-        <div id="posterior"></div>
-        <h3>Normalized</h3>
-        <div id="normalized"></div>
-      </div>
-      <div class="right">
-        <h2>Data</h2>
-        <div class="data">
-          <h3>Measurements</h3>
-          <div id="measurements">
-            <form>
-              <select id="measurement-type">
-                <option value="red">red</option>
-                <option value="green">green</option>
-              </select>
-              <button type="button" class="confirm" id="add-measurement">Add</button>
-            </form>
-            <ul>
-              <li id="m1" class="red">
-                red <button type="button" class="measurement" title="REMOVE">X</button>
-              </li>
-              <li id="m2" class="green">
-                green <button type="button" class="measurement" title="REMOVE">X</button>
-              </li>
-            </ul>
+    <div class="wrapper flex-col-a">
+      <h1>Localization</h1>
+      <div class="container flex-row-a">
+        <div class="left flex-col-a">
+          <h2>World</h2>
+          <div id="world" class="flex-row-a shadow"></div>
+          <h3>Prior</h3>
+          <div id="prior" class="flex-row-a shadow"></div>
+          <h3>Posterior</h3>
+          <div id="posterior" class="flex-row-a shadow"></div>
+          <h3>Normalized</h3>
+          <div id="normalized" class="flex-row-a shadow"></div>
+        </div>
+        <div class="right flex-col-a">
+          <h2>Data</h2>
+          <div class="data flex-col-c shadow">
+            <h3>Measurements</h3>
+            <div id="measurements" class="flex-col-c">
+              <form class="flex-row-a">
+                <select id="measurement-type" class="shadow">
+                  <option value="red">red</option>
+                  <option value="green">green</option>
+                </select>
+                <button type="button" class="shadow confirm" id="add-measurement">Add</button>
+              </form>
+              <ul class="flex-col-c">
+                <li id="m1" class="flex-row-b shadow red">
+                  red <button type="button" class="shadow-h measurement" title="REMOVE">X</button>
+                </li>
+                <li id="m2" class="flex-row-b shadow green">
+                  green <button type="button" class="shadow-h measurement" title="REMOVE">X</button>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="shadow confirm" id="run">Run</button>
           </div>
-          <button type="button" class="confirm" id="run">Run</button>
         </div>
       </div>
     </div>
+
   </body>
 </html>

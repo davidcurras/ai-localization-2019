@@ -46,7 +46,7 @@ const setNormalized = () => {
 const renderWorld = () => {
   let html = ''
   for (let i = 0; i < world.length; i++) {
-    html += '<div class="tile '+world[i]+'"></div>'
+    html += '<div class="tile flex-col-a shadow '+world[i]+'"></div>'
   }
   document.getElementById('world').innerHTML = html
 }
@@ -55,7 +55,7 @@ const renderPrior = () => {
   let html = ''
   for (let i = 0; i < prior.length; i++) {
     const value = prior[i].toFixed(2)
-    html += '<div class="tile grey">'+value+'</div>'
+    html += '<div class="tile flex-col-a shadow grey">'+value+'</div>'
   }
   document.getElementById('prior').innerHTML = html
 }
@@ -64,7 +64,7 @@ const renderPosterior = () => {
   let html = ''
   for (let i = 0; i < posterior.length; i++) {
     const value = posterior[i].toFixed(2)
-    html += '<div class="tile grey">'+value+'</div>'
+    html += '<div class="tile flex-col-a shadow grey">'+value+'</div>'
   }
   document.getElementById('posterior').innerHTML = html
 }
@@ -73,7 +73,7 @@ const renderNormalized = () => {
   let html = ''
   for (let i = 0; i < normalized.length; i++) {
     const value = normalized[i].toFixed(2)
-    html += '<div class="tile grey">'+value+'</div>'
+    html += '<div class="tile flex-col-a shadow grey">'+value+'</div>'
   }
   document.getElementById('normalized').innerHTML = html
 }
