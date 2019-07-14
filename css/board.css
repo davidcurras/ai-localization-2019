@@ -50,9 +50,9 @@ h3 {
 }
 
 #world,
-#current,
 #prior,
 #posterior,
+#normalized,
 .right .data {
   position: relative;
   display: flex;
@@ -71,9 +71,9 @@ h3 {
 }
 
 #world .tile,
-#current .tile,
 #prior .tile,
-#posterior .tile {
+#posterior .tile,
+#normalized .tile {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -109,27 +109,27 @@ h3 {
   margin-top: .3vh;
 }
 
-#current {
-  background-color: #cccccc;
-}
-
-#current .tile.grey {
-  background-color: #cccccc;
-}
-
 #prior {
-  background-color: #aaaaaa;
+  background-color: #cccccc;
 }
 
 #prior .tile.grey {
-  background-color: #dddddd;
+  background-color: #cccccc;
 }
 
 #posterior {
-  background-color: #888888;
+  background-color: #aaaaaa;
 }
 
 #posterior .tile.grey {
+  background-color: #dddddd;
+}
+
+#normalized {
+  background-color: #888888;
+}
+
+#normalized .tile.grey {
   background-color: #eeeeee;
 }
 

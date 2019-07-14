@@ -4,33 +4,42 @@ const pHit = 0.6
 const pMiss = 0.2
 const sensed = 'red'
 
-const current = []
-const prior = []
-const posterior = []
+let prior = []
+let posterior = []
+let normalized = []
 
-const setUniformCurrent = () => {
+const setUniformPrior = () => {
   for (let i = 0; i < world.length; i++) {
-    current[i] = 1 / world.length
+    prior[i] = 1 / world.length
   }
 }
 
 const setPrior = () => {
-  for (let i = 0; i < world.length; i++) {
-    if(world[i] === sensed) {
-      prior.push(current[i] * pHit)
-    } else {
-      prior.push(current[i] * pMiss)
-    }
+  prior = posterior.slice()
+  if(!posterior.length) {
+    setUniformPrior()
   }
 }
 
 const setPosterior = () => {
-  let total = 0
-  for (let i = 0; i < prior.length; i++) {
-    total += prior[i]
+  posterior = []
+  for (let i = 0; i < world.length; i++) {
+    if(world[i] === sensed) {
+      posterior.push(prior[i] * pHit)
+    } else {
+      posterior.push(prior[i] * pMiss)
+    }
   }
-  for (let i = 0; i < prior.length; i++) {
-    posterior.push(prior[i] / total)
+}
+
+const setNormalized = () => {
+  normalized = []
+  let total = 0
+  for (let i = 0; i < posterior.length; i++) {
+    total += posterior[i]
+  }
+  for (let i = 0; i < posterior.length; i++) {
+    normalized.push(posterior[i] / total)
   }
 }
 
@@ -40,15 +49,6 @@ const renderWorld = () => {
     html += '<div class="tile '+world[i]+'"></div>'
   }
   document.getElementById('world').innerHTML = html
-}
-
-const renderCurrent = () => {
-  let html = ''
-  for (let i = 0; i < current.length; i++) {
-    const value = current[i].toFixed(2)
-    html += '<div class="tile grey">'+value+'</div>'
-  }
-  document.getElementById('current').innerHTML = html
 }
 
 const renderPrior = () => {
@@ -69,29 +69,47 @@ const renderPosterior = () => {
   document.getElementById('posterior').innerHTML = html
 }
 
+const renderNormalized = () => {
+  let html = ''
+  for (let i = 0; i < normalized.length; i++) {
+    const value = normalized[i].toFixed(2)
+    html += '<div class="tile grey">'+value+'</div>'
+  }
+  document.getElementById('normalized').innerHTML = html
+}
+
 const renderRobot = () => {
   const worldEl = document.getElementById('world')
   const worldTiles = worldEl.getElementsByClassName('tile')
   for (let i = 0; i < worldTiles.length; i++) {
     worldTiles[i].innerHTML = '' +
       '<img src="images/robot.png" alt="ROBOT">' +
-      '<span>'+posterior[i].toFixed(2)+'</span>'
+      '<span>'+normalized[i].toFixed(2)+'</span>'
   }
   const worldTilesImg = worldEl.getElementsByTagName('img')
   for (let i = 0; i < worldTilesImg.length; i++) {
-    worldTilesImg[i].style.opacity = posterior[i] * 2
+    worldTilesImg[i].style.opacity = normalized[i] * 2
   }
 }
 
-const init = () => {
-  setUniformCurrent()
-  setPrior()
-  setPosterior()
+const render = () => {
   renderWorld()
-  renderCurrent()
   renderPrior()
   renderPosterior()
+  renderNormalized()
   renderRobot()
+}
+
+const run = () => {
+  setPrior()
+  setPosterior()
+  setNormalized()
+  render()
+}
+
+const init = () => {
+  run()
+  document.getElementById('run').onclick = run
 }
 
 window.onload = init
