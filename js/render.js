@@ -82,8 +82,8 @@ LAI.Render = {
     const senseD = LAI.World.Measurements.length ? '' : 'disabled="disabled"'
     const moveD = LAI.World.Movements.length ? '' : 'disabled="disabled"'
     let html = ''
-    html += '<button id="sense" type="button" class="shadow confirm" '+senseD+'>Sense</button>'
-    html += '<button id="move" type="button" class="shadow confirm" '+moveD+'>Move</button>'
+    html += '<button id="sense" type="button" class="shadow action" '+senseD+'>Sense</button>'
+    html += '<button id="move" type="button" class="shadow action" '+moveD+'>Move</button>'
     document.getElementById('actions').innerHTML = html
   }
 

@@ -21,9 +21,9 @@ LAI.AI = {
     LAI.AI.Posterior = []
     for (let i = 0; i < LAI.World.Positions.length; i++) {
       if(LAI.World.Positions[i] === measurement) {
-        LAI.AI.Posterior.push(LAI.AI.Prior[i] * LAI.World.PHit)
+        LAI.AI.Posterior.push(LAI.AI.Prior[i] * LAI.World.Sense.PHit)
       } else {
-        LAI.AI.Posterior.push(LAI.AI.Prior[i] * LAI.World.PMiss)
+        LAI.AI.Posterior.push(LAI.AI.Prior[i] * LAI.World.Sense.PMiss)
       }
     }
   },

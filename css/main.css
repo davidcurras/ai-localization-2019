@@ -45,15 +45,8 @@ input, select {
   box-sizing: border-box;
 }
 
-button.confirm:disabled,
-button.confirm[disabled],
-button.confirm:disabled:hover,
-button.confirm[disabled]:hover {
-  background-color: #999999;
-  cursor: default;
-}
-
-button.confirm {
+button.confirm,
+button.action {
   width: 80%;
   background-color: #009900;
   color: #FFFFFF;
@@ -63,8 +56,21 @@ button.confirm {
   cursor: pointer;
 }
 
-button.confirm:hover {
+button.confirm:hover,
+button.action:hover {
   background-color: #006600;
+}
+
+button.action {
+  padding: 2vh;
+}
+
+button.action:disabled,
+button.action[disabled],
+button.action:disabled:hover,
+button.action[disabled]:hover {
+  background-color: #999999;
+  cursor: default;
 }
 
 .container {
@@ -153,26 +159,30 @@ button.confirm:hover {
 
 #measurements,
 #movements,
-#positions {
+#positions,
+#inputs {
   width: 88%;
   margin: 2vh;
 }
 
 #measurements form,
 #movements form,
-#positions form {
+#positions form,
+#inputs form {
   width: 100%;
 }
 
 #measurements form select,
 #movements form select,
-#positions form select {
+#positions form select ,
+#inputs form select {
   min-width: 60%;
 }
 
 #measurements ul,
 #movements ul,
-#positions ul {
+#positions ul,
+#inputs ul {
   width: 83%;
   font-size: 2vh;
   font-weight: 400;
@@ -181,7 +191,8 @@ button.confirm:hover {
 
 #measurements ul li,
 #movements ul li,
-#positions ul li {
+#positions ul li,
+#inputs ul li {
   width: 100%;
   padding: .1vh 1vh;
   margin-top: 1vh;
@@ -229,4 +240,18 @@ button.confirm:hover {
 #positions ul li.green button:hover {
   background-color: rgba(0, 200, 0, 0.5);
   border-color: rgba(0, 150, 0, 0.5);
+}
+
+#inputs form.flex-row-b {
+  align-items: flex-start;
+}
+
+#inputs form.flex-row-b label {
+  display: inline-block;
+  padding: .5vh;
+}
+
+#inputs form.flex-row-b select {
+  min-width: 0;
+  margin: 0;
 }
