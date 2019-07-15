@@ -10,7 +10,8 @@ LAI.Handlers = {
   },
 
   Attach: () => {
-    document.getElementById('run').onclick = LAI.Handlers.Run
+    document.getElementById('sense').onclick = LAI.Handlers.Sense
+    document.getElementById('move').onclick = LAI.Handlers.Move
     LAI.Handlers.AttachPosition()
     LAI.Handlers.AttachMeasurement()
     LAI.Handlers.AttachMovement()
@@ -88,7 +89,7 @@ LAI.Handlers = {
     LAI.Handlers.Render()
   },
 
-  Run: () => {
+  Sense: () => {
     // Set Uniform for initialization
     if(!LAI.AI.Posterior.length) {
       LAI.Handlers.Init()
@@ -105,6 +106,16 @@ LAI.Handlers = {
     LAI.Handlers.Render()
   },
 
+  Move: () => {
+    // return if measurements list is empty
+    if(!LAI.World.Movements.length) return
+    const step = LAI.World.Movements.shift()
+    if(!step) return
+    // Process
+    LAI.AI.Move(step)
+    LAI.Handlers.Render()
+  },
+
   Render: () => {
     LAI.Render.World()
     LAI.Render.Prior()
@@ -113,6 +124,7 @@ LAI.Handlers = {
     LAI.Render.Robot()
     LAI.Render.Measurements()
     LAI.Render.Movements()
+    LAI.Render.Actions()
     LAI.Handlers.Attach()
   }
 

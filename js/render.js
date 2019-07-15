@@ -71,11 +71,20 @@ LAI.Render = {
   Movements: () => {
     let html = ''
     for (let i = 0; i < LAI.World.Movements.length; i++) {
-      html += '<li id="mv'+i+'" class="flex-row-b shadow grey">'
-      html += LAI.World.Movements[i]+' <button type="button" class="shadow-h remove-movement" title="REMOVE">'
+      html += '<li id="mv'+i+'" class="flex-row-b shadow grey">'+LAI.World.Movements[i]
+      html += ' position/s<button type="button" class="shadow-h remove-movement" title="REMOVE">'
       html += 'X</button></li>'
     }
     document.getElementById('movements-list').innerHTML = html
+  },
+
+  Actions: () => {
+    const senseD = LAI.World.Measurements.length ? '' : 'disabled="disabled"'
+    const moveD = LAI.World.Movements.length ? '' : 'disabled="disabled"'
+    let html = ''
+    html += '<button id="sense" type="button" class="shadow confirm" '+senseD+'>Sense</button>'
+    html += '<button id="move" type="button" class="shadow confirm" '+moveD+'>Move</button>'
+    document.getElementById('actions').innerHTML = html
   }
 
 }

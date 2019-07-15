@@ -45,6 +45,14 @@ input, select {
   box-sizing: border-box;
 }
 
+button.confirm:disabled,
+button.confirm[disabled],
+button.confirm:disabled:hover,
+button.confirm[disabled]:hover {
+  background-color: #999999;
+  cursor: default;
+}
+
 button.confirm {
   width: 80%;
   background-color: #009900;

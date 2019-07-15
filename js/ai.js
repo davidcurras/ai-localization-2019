@@ -39,6 +39,18 @@ LAI.AI = {
     }
   },
 
+  Move: (steps) => {
+    const prior = LAI.AI.Prior.slice()
+    const posterior = LAI.AI.Posterior.slice()
+    const normalized = LAI.AI.Normalized.slice()
+    for (let i = 0; i < prior.length; i++) {
+      const j = ((i+prior.length) - (steps % prior.length)) % prior.length
+      LAI.AI.Prior[i] = prior[j]
+      LAI.AI.Posterior[i] = posterior[j]
+      LAI.AI.Normalized[i] = normalized[j]
+    }
+  }
+
 }
 
 LAI.AI.Prior = []
