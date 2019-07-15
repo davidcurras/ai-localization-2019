@@ -4,23 +4,21 @@ window.LAI = window.LAI || {}
 
 LAI.AI = {
 
-  SetUniformPrior: () => {
+  SetUniform: () => {
     for (let i = 0; i < LAI.World.Positions.length; i++) {
       LAI.AI.Prior[i] = 1 / LAI.World.Positions.length
     }
+    LAI.AI.Normalized = LAI.AI.Posterior = LAI.AI.Prior
   },
 
   SetPrior: () => {
     LAI.AI.Prior = LAI.AI.Posterior.slice()
-    if(!LAI.AI.Posterior.length) {
-      LAI.AI.SetUniformPrior()
-    }
   },
 
-  SetPosterior: () => {
+  SetPosterior: (measurement) => {
     LAI.AI.Posterior = []
     for (let i = 0; i < LAI.World.Positions.length; i++) {
-      if(LAI.World.Positions[i] === LAI.World.Sensed) {
+      if(LAI.World.Positions[i] === measurement) {
         LAI.AI.Posterior.push(LAI.AI.Prior[i] * LAI.World.PHit)
       } else {
         LAI.AI.Posterior.push(LAI.AI.Prior[i] * LAI.World.PMiss)

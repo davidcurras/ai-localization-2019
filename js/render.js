@@ -56,6 +56,16 @@ LAI.Render = {
     for (let i = 0; i < worldTilesImg.length; i++) {
       worldTilesImg[i].style.opacity = LAI.AI.Normalized[i] * 2
     }
-  }
+  },
+
+  Measurements: () => {
+    let html = ''
+    for (let i = 0; i < LAI.World.Measurements.length; i++) {
+      html += '<li id="m'+i+'" class="flex-row-b shadow '+LAI.World.Measurements[i]+'">'
+      html += LAI.World.Measurements[i]+' <button type="button" class="shadow-h measurement" title="REMOVE">'
+      html += 'X</button></li>'
+    }
+    document.getElementById('measurements-list').innerHTML = html
+  },
 
 }
