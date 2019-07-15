@@ -14,7 +14,7 @@ LAI.AI = {
   },
 
   SetPrior: () => {
-    LAI.AI.Prior = LAI.AI.Posterior.slice()
+    LAI.AI.Prior = LAI.AI.Normalized.slice()
   },
 
   SetPosterior: (measurement) => {

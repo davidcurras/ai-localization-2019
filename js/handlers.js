@@ -12,9 +12,14 @@ LAI.Handlers = {
   Attach: () => {
     document.getElementById('run').onclick = LAI.Handlers.Run
     document.getElementById('add-position').onclick = LAI.Handlers.AddPosition
-    const removeBtns = document.getElementsByClassName('remove-position')
-    for (let i = 0; i < removeBtns.length; i++) {
-      removeBtns[i].onclick = LAI.Handlers.RemovePosition
+    const remPosBtns = document.getElementsByClassName('remove-position')
+    for (let i = 0; i < remPosBtns.length; i++) {
+      remPosBtns[i].onclick = LAI.Handlers.RemovePosition
+    }
+    document.getElementById('add-measurement').onclick = LAI.Handlers.AddMeasurement
+    const remMeasureBtns = document.getElementsByClassName('remove-measurement')
+    for (let i = 0; i < remMeasureBtns.length; i++) {
+      remMeasureBtns[i].onclick = LAI.Handlers.RemoveMeasurement
     }
   },
 
@@ -32,6 +37,22 @@ LAI.Handlers = {
     const index = parseInt(evt.target.parentElement.id.slice(1))
     LAI.World.Positions.splice(index, 1)
     LAI.Handlers.Init()
+  },
+
+  AddMeasurement: (evt) => {
+    const selected = document.getElementById('measurement-type').value
+    LAI.World.Measurements.push(selected)
+    LAI.Handlers.Render()
+    const removeBtns = document.getElementsByClassName('remove-measurement')
+    for (let i = 0; i < removeBtns.length; i++) {
+      removeBtns[i].onclick = LAI.Handlers.RemoveMeasurement
+    }
+  },
+
+  RemoveMeasurement: (evt) => {
+    const index = parseInt(evt.target.parentElement.id.slice(1))
+    LAI.World.Measurements.splice(index, 1)
+    LAI.Handlers.Render()
   },
 
   Run: () => {
