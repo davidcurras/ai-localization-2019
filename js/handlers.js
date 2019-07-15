@@ -100,7 +100,6 @@ LAI.Handlers = {
     const measurement = LAI.World.Measurements.shift()
     if(!measurement) return
     // Process
-    LAI.AI.SetPrior()
     LAI.AI.SetPosterior(measurement)
     LAI.AI.SetNormalized()
     LAI.Handlers.Render()

@@ -13,11 +13,8 @@ LAI.AI = {
     LAI.AI.Normalized = LAI.AI.Prior.slice()
   },
 
-  SetPrior: () => {
-    LAI.AI.Prior = LAI.AI.Normalized.slice()
-  },
-
   SetPosterior: (measurement) => {
+    LAI.AI.Prior = LAI.AI.Normalized.slice()
     LAI.AI.Posterior = []
     for (let i = 0; i < LAI.World.Positions.length; i++) {
       if(LAI.World.Positions[i] === measurement) {
@@ -40,15 +37,22 @@ LAI.AI = {
   },
 
   Move: (steps) => {
+    LAI.AI.Prior = LAI.AI.Normalized.slice()
     const prior = LAI.AI.Prior.slice()
-    const posterior = LAI.AI.Posterior.slice()
-    const normalized = LAI.AI.Normalized.slice()
+    LAI.AI.Posterior = []
     for (let i = 0; i < prior.length; i++) {
+      // (i+prior.length) makes sure "i" is great enough to avoid negatives
+      // (steps % prior.length) makes sure "steps" is lower than prior length
+      // "j" is the position next to "i" assuming a circular world
       const j = ((i+prior.length) - (steps % prior.length)) % prior.length
-      LAI.AI.Prior[i] = prior[j]
-      LAI.AI.Posterior[i] = posterior[j]
-      LAI.AI.Normalized[i] = normalized[j]
+      const jNext = ((i+prior.length-1) - (steps % prior.length)) % prior.length
+      const jPrev = ((i+prior.length+1) - (steps % prior.length)) % prior.length
+      const exact = LAI.World.Move.PExact * prior[j]
+      const overshoot = LAI.World.Move.POvershoot * prior[jNext]
+      const undershoot = LAI.World.Move.PUndershoot * prior[jPrev]
+      LAI.AI.Posterior[i] = exact + overshoot + undershoot
     }
+    LAI.AI.SetNormalized()
   }
 
 }
