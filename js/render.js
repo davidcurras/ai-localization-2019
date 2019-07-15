@@ -68,4 +68,14 @@ LAI.Render = {
     document.getElementById('measurements-list').innerHTML = html
   },
 
+  Movements: () => {
+    let html = ''
+    for (let i = 0; i < LAI.World.Movements.length; i++) {
+      html += '<li id="mv'+i+'" class="flex-row-b shadow grey">'
+      html += LAI.World.Movements[i]+' <button type="button" class="shadow-h remove-movement" title="REMOVE">'
+      html += 'X</button></li>'
+    }
+    document.getElementById('movements-list').innerHTML = html
+  }
+
 }

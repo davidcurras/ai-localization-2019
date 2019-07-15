@@ -11,15 +11,16 @@ LAI.Handlers = {
 
   Attach: () => {
     document.getElementById('run').onclick = LAI.Handlers.Run
+    LAI.Handlers.AttachPosition()
+    LAI.Handlers.AttachMeasurement()
+    LAI.Handlers.AttachMovement()
+  },
+
+  AttachPosition: () => {
     document.getElementById('add-position').onclick = LAI.Handlers.AddPosition
     const remPosBtns = document.getElementsByClassName('remove-position')
     for (let i = 0; i < remPosBtns.length; i++) {
       remPosBtns[i].onclick = LAI.Handlers.RemovePosition
-    }
-    document.getElementById('add-measurement').onclick = LAI.Handlers.AddMeasurement
-    const remMeasureBtns = document.getElementsByClassName('remove-measurement')
-    for (let i = 0; i < remMeasureBtns.length; i++) {
-      remMeasureBtns[i].onclick = LAI.Handlers.RemoveMeasurement
     }
   },
 
@@ -39,6 +40,14 @@ LAI.Handlers = {
     LAI.Handlers.Init()
   },
 
+  AttachMeasurement: () => {
+    document.getElementById('add-measurement').onclick = LAI.Handlers.AddMeasurement
+    const remMeasureBtns = document.getElementsByClassName('remove-measurement')
+    for (let i = 0; i < remMeasureBtns.length; i++) {
+      remMeasureBtns[i].onclick = LAI.Handlers.RemoveMeasurement
+    }
+  },
+
   AddMeasurement: (evt) => {
     const selected = document.getElementById('measurement-type').value
     LAI.World.Measurements.push(selected)
@@ -52,6 +61,30 @@ LAI.Handlers = {
   RemoveMeasurement: (evt) => {
     const index = parseInt(evt.target.parentElement.id.slice(1))
     LAI.World.Measurements.splice(index, 1)
+    LAI.Handlers.Render()
+  },
+
+  AttachMovement: () => {
+    document.getElementById('add-movement').onclick = LAI.Handlers.AddMovement
+    const remMeasureBtns = document.getElementsByClassName('remove-movement')
+    for (let i = 0; i < remMeasureBtns.length; i++) {
+      remMeasureBtns[i].onclick = LAI.Handlers.RemoveMovement
+    }
+  },
+
+  AddMovement: (evt) => {
+    const selected = document.getElementById('movement-type').value
+    LAI.World.Movements.push(parseInt(selected))
+    LAI.Handlers.Render()
+    const removeBtns = document.getElementsByClassName('remove-movement')
+    for (let i = 0; i < removeBtns.length; i++) {
+      removeBtns[i].onclick = LAI.Handlers.RemoveMovement
+    }
+  },
+
+  RemoveMovement: (evt) => {
+    const index = parseInt(evt.target.parentElement.id.slice(1))
+    LAI.World.Movements.splice(index, 1)
     LAI.Handlers.Render()
   },
 
@@ -79,6 +112,7 @@ LAI.Handlers = {
     LAI.Render.Normalized()
     LAI.Render.Robot()
     LAI.Render.Measurements()
+    LAI.Render.Movements()
     LAI.Handlers.Attach()
   }
 
