@@ -143,27 +143,37 @@ button.confirm:hover {
   background-color: #eeeeee;
 }
 
-#measurements {
+#measurements,
+#movements,
+#positions {
   width: 88%;
   margin: 2vh;
 }
 
-#measurements form {
+#measurements form,
+#movements form,
+#positions form {
   width: 100%;
 }
 
-#measurements form select {
+#measurements form select,
+#movements form select,
+#positions form select {
   min-width: 60%;
 }
 
-#measurements ul {
+#measurements ul,
+#movements ul,
+#positions ul {
   width: 83%;
   font-size: 2vh;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-#measurements ul li {
+#measurements ul li,
+#movements ul li,
+#positions ul li {
   width: 100%;
   padding: .1vh 1vh;
   margin-top: 1vh;
@@ -171,15 +181,21 @@ button.confirm:hover {
   border-radius: 3px;
 }
 
-#measurements ul li.red {
+#measurements ul li.red,
+#movements ul li.red,
+#positions ul li.red {
   background-color: rgba(200, 0, 0, 0.5);
 }
 
-#measurements ul li.green {
+#measurements ul li.green,
+#movements ul li.green,
+#positions ul li.green {
   background-color: rgba(0, 200, 0, 0.5);
 }
 
-#measurements ul li button {
+#measurements ul li button,
+#movements ul li button,
+#positions ul li button {
   padding: .2vh 1vh;
   margin: .2vh;
   background-color: transparent;
@@ -187,16 +203,22 @@ button.confirm:hover {
   border-radius: 3px;
 }
 
-#measurements ul li button:hover {
+#measurements ul li button:hover,
+#movements ul li button:hover,
+#positions ul li button:hover {
   border-radius: 3px;
 }
 
-#measurements ul li.red button:hover {
+#measurements ul li.red button:hover,
+#movements ul li.red button:hover,
+#positions ul li.red button:hover {
   background-color: rgba(200, 0, 0, 0.5);
   border-color: rgba(150, 0, 0, 0.5);
 }
 
-#measurements ul li.green button:hover {
+#measurements ul li.green button:hover,
+#movements ul li.green button:hover,
+#positions ul li.green button:hover {
   background-color: rgba(0, 200, 0, 0.5);
   border-color: rgba(0, 150, 0, 0.5);
 }

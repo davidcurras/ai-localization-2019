@@ -31,6 +31,24 @@
         <div class="right flex-col-a">
           <h2>Data</h2>
           <div class="data flex-col-c shadow">
+            <h3>World Positions</h3>
+            <div id="positions" class="flex-col-c">
+              <form class="flex-row-a">
+                <select id="position-type" class="shadow">
+                  <option value="red">red</option>
+                  <option value="green">green</option>
+                </select>
+                <button id="add-position" type="button" class="shadow confirm">Add</button>
+              </form>
+              <ul id="positions-list" class="flex-col-c">
+                <li id="p1" class="flex-row-b shadow red">
+                  red <button type="button" class="shadow-h position" title="REMOVE">X</button>
+                </li>
+                <li id="p2" class="flex-row-b shadow green">
+                  green <button type="button" class="shadow-h position" title="REMOVE">X</button>
+                </li>
+              </ul>
+            </div>
             <h3>Measurements</h3>
             <div id="measurements" class="flex-col-c">
               <form class="flex-row-a">
@@ -46,6 +64,17 @@
                 </li>
                 <li id="m2" class="flex-row-b shadow green">
                   green <button type="button" class="shadow-h measurement" title="REMOVE">X</button>
+                </li>
+              </ul>
+            </div>
+            <h3>Movements</h3>
+            <div id="movements" class="flex-col-c">
+              <ul class="flex-col-c">
+                <li id="mv1" class="flex-row-b shadow red">
+                  1 <button type="button" class="shadow-h movement" title="REMOVE">X</button>
+                </li>
+                <li id="mv2" class="flex-row-b shadow green">
+                  1 <button type="button" class="shadow-h movement" title="REMOVE">X</button>
                 </li>
               </ul>
             </div>

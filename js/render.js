@@ -5,11 +5,16 @@ window.LAI = window.LAI || {}
 LAI.Render = {
 
   World: () => {
-    let html = ''
+    let worldHtml = ''
+    let posHtml = ''
     for (let i = 0; i < LAI.World.Positions.length; i++) {
-      html += '<div class="tile flex-col-a shadow '+LAI.World.Positions[i]+'"></div>'
+      worldHtml += '<div class="tile flex-col-a shadow '+LAI.World.Positions[i]+'"></div>'
+      posHtml += '<li id="p'+i+'" class="flex-row-b shadow '+LAI.World.Positions[i]+'">'
+      posHtml += LAI.World.Positions[i]+' <button type="button" class="shadow-h position" title="REMOVE">'
+      posHtml += 'X</button></li>'
     }
-    document.getElementById('world').innerHTML = html
+    document.getElementById('world').innerHTML = worldHtml
+    document.getElementById('positions-list').innerHTML = posHtml
   },
 
   Prior: () => {

@@ -4,8 +4,12 @@ window.LAI = window.LAI || {}
 
 LAI.Handlers = {
 
-  Init:() => {
+  Init: () => {
     LAI.Handlers.Run()
+    LAI.Handlers.Attach()
+  },
+
+  Attach: () => {
     document.getElementById('run').onclick = LAI.Handlers.Run
   },
 
