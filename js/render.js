@@ -10,7 +10,7 @@ LAI.Render = {
     for (let i = 0; i < LAI.World.Positions.length; i++) {
       worldHtml += '<div class="tile flex-col-a shadow '+LAI.World.Positions[i]+'"></div>'
       posHtml += '<li id="p'+i+'" class="flex-row-b shadow '+LAI.World.Positions[i]+'">'
-      posHtml += LAI.World.Positions[i]+' <button type="button" class="shadow-h position" title="REMOVE">'
+      posHtml += LAI.World.Positions[i]+' <button type="button" class="shadow-h remove-position" title="REMOVE">'
       posHtml += 'X</button></li>'
     }
     document.getElementById('world').innerHTML = worldHtml
@@ -62,7 +62,7 @@ LAI.Render = {
     let html = ''
     for (let i = 0; i < LAI.World.Measurements.length; i++) {
       html += '<li id="m'+i+'" class="flex-row-b shadow '+LAI.World.Measurements[i]+'">'
-      html += LAI.World.Measurements[i]+' <button type="button" class="shadow-h measurement" title="REMOVE">'
+      html += LAI.World.Measurements[i]+' <button type="button" class="shadow-h remove-measurement" title="REMOVE">'
       html += 'X</button></li>'
     }
     document.getElementById('measurements-list').innerHTML = html

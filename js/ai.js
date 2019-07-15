@@ -5,10 +5,12 @@ window.LAI = window.LAI || {}
 LAI.AI = {
 
   SetUniform: () => {
+    LAI.AI.Prior = []
     for (let i = 0; i < LAI.World.Positions.length; i++) {
       LAI.AI.Prior[i] = 1 / LAI.World.Positions.length
     }
-    LAI.AI.Normalized = LAI.AI.Posterior = LAI.AI.Prior
+    LAI.AI.Posterior = LAI.AI.Prior.slice()
+    LAI.AI.Normalized = LAI.AI.Prior.slice()
   },
 
   SetPrior: () => {
